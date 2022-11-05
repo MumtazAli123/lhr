@@ -1,16 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:lhr/main.dart';
+import 'dart:async';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 
-class Signup extends StatelessWidget {
-  Signup({super.key});
+class Signup extends StatefulWidget {
+  const Signup({super.key});
 
+  @override
+  State<Signup> createState() => _SignupState();
+}
+
+class _SignupState extends State<Signup> {
   final userName = TextEditingController();
   final userEmail = TextEditingController();
 
-  void InsertData() {
-    if (userName.text == "" && userEmail.text == "") {
-      const Text("fill up input");
-    }
+  Future<List> sendData() async {
+    final Res = await http
+        .post(Uri.parse("https://babarfurniture.com/mumtaz/insert.php"), body: {
+      "name": userName.text,
+      "email": userEmail.text,
+    });
+    return jsonDecode(Res.body);
   }
 
   @override
@@ -38,8 +48,9 @@ class Signup extends StatelessWidget {
                   Center(
                     child: Container(
                       margin: const EdgeInsets.all(12),
-                      child: const TextField(
-                        decoration: InputDecoration(
+                      child: TextField(
+                        controller: userName,
+                        decoration: const InputDecoration(
                           border: OutlineInputBorder(),
                           label: Text("Enter your name"),
                           helperText: "92 300****733",
@@ -49,8 +60,9 @@ class Signup extends StatelessWidget {
                   ),
                   Container(
                     margin: const EdgeInsets.all(12),
-                    child: const TextField(
-                      decoration: InputDecoration(
+                    child: TextField(
+                      controller: userEmail,
+                      decoration: const InputDecoration(
                         border: OutlineInputBorder(),
                         label: Text("Enter  Phone Number "),
                         prefix: Text(
@@ -60,18 +72,11 @@ class Signup extends StatelessWidget {
                     ),
                   ),
                   Center(
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const MyApp()));
-                      },
-                      child: const Text(
-                        "Submit",
-                        style: TextStyle(
-                          fontSize: 20,
-                        ),
+                    child: Container(
+                      margin: const EdgeInsets.all(21),
+                      child: ElevatedButton(
+                        onPressed: sendData,
+                        child: const Text("Submit"),
                       ),
                     ),
                   ),
