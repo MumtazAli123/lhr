@@ -30,57 +30,62 @@ class _SignupState extends State<Signup> {
       body: Center(
         child: Card(
           shadowColor: Colors.red,
-          child: Container(
-            width: 566,
-            color: Colors.red[50],
-            child: SafeArea(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    'Signup',
-                    style: TextStyle(fontSize: 50, fontWeight: FontWeight.w900),
-                  ),
-                  const Text(
-                    'Create your account',
-                    style: TextStyle(fontWeight: FontWeight.w300, fontSize: 18),
-                  ),
-                  Center(
-                    child: Container(
+          child: Padding(
+            padding: const EdgeInsets.all(22.0),
+            child: SizedBox(
+              width: 496,
+              height: 490,
+              child: SafeArea(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      'Signup',
+                      style:
+                          TextStyle(fontSize: 50, fontWeight: FontWeight.w900),
+                    ),
+                    const Text(
+                      'Create your account',
+                      style:
+                          TextStyle(fontWeight: FontWeight.w300, fontSize: 18),
+                    ),
+                    Center(
+                      child: Container(
+                        margin: const EdgeInsets.all(12),
+                        child: TextField(
+                          controller: userName,
+                          decoration: const InputDecoration(
+                            border: OutlineInputBorder(),
+                            label: Text("Enter your name"),
+                            helperText: "92 300****733",
+                          ),
+                        ),
+                      ),
+                    ),
+                    Container(
                       margin: const EdgeInsets.all(12),
                       child: TextField(
-                        controller: userName,
+                        controller: userEmail,
                         decoration: const InputDecoration(
                           border: OutlineInputBorder(),
-                          label: Text("Enter your name"),
-                          helperText: "92 300****733",
+                          label: Text("Enter  Phone Number "),
+                          prefix: Text(
+                            "92 ",
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.all(12),
-                    child: TextField(
-                      controller: userEmail,
-                      decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
-                        label: Text("Enter  Phone Number "),
-                        prefix: Text(
-                          "92 ",
+                    Center(
+                      child: Container(
+                        margin: const EdgeInsets.all(21),
+                        child: ElevatedButton(
+                          onPressed: sendData,
+                          child: const Text("Submit"),
                         ),
                       ),
                     ),
-                  ),
-                  Center(
-                    child: Container(
-                      margin: const EdgeInsets.all(21),
-                      child: ElevatedButton(
-                        onPressed: sendData,
-                        child: const Text("Submit"),
-                      ),
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),
