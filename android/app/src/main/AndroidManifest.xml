@@ -1,5 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.lhr">
+    package="com.example.lhr"
+    android:versionCode="TODO"
+    android:versionName="TODO">
    <application
         android:label="lhr"
         android:name="${applicationName}"
