@@ -9,14 +9,12 @@ class Signup extends StatelessWidget {
 
   void InsertData() {
     if (userName.text == "" && userEmail.text == "") {
-      print("fill up input");
+      const Text("fill up input");
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    var userName = " ";
-    var userEmail = " ";
     return Scaffold(
       backgroundColor: Colors.cyan[50],
       body: Center(
@@ -49,21 +47,14 @@ class Signup extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Center(
-                  @action
-                   (){
-                    c
-            return ();
-            }
-                    child: Container(
-                      margin: const EdgeInsets.all(12),
-                      child: const TextField(
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(),
-                          label: Text("Enter  Phone Number "),
-                          prefix: Text(
-                            "92 ",
-                          ),
+                  Container(
+                    margin: const EdgeInsets.all(12),
+                    child: const TextField(
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        label: Text("Enter  Phone Number "),
+                        prefix: Text(
+                          "92 ",
                         ),
                       ),
                     ),
@@ -71,8 +62,10 @@ class Signup extends StatelessWidget {
                   Center(
                     child: ElevatedButton(
                       onPressed: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => MyApp()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const MyApp()));
                       },
                       child: const Text(
                         "Submit",
