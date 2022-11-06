@@ -37,13 +37,14 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: const Sidebar(),
+
       appBar: AppBar(
         title: Text(widget.title),
       ),
       body: ElevatedButton(
         onPressed: () {
           Navigator.push(
-              context, MaterialPageRoute(builder: (context) => Signup()));
+              context, MaterialPageRoute(builder: (context) => const Signup()));
         },
         child: const Icon(Icons.account_balance_wallet),
       ),
@@ -52,7 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
           Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => Signup(),
+                builder: (context) => const MyApp(),
               ));
         },
         child: const Icon(Icons.add),
