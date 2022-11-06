@@ -36,8 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Sidebar(),
-      endDrawer: Signup(),
+      drawer: const Sidebar(),
       appBar: AppBar(
         title: Text(widget.title),
       ),
